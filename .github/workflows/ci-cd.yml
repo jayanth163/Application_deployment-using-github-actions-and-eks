@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.K8S_USER }}
           key: ${{ secrets.K8S_SSH_KEY }}
           source: "*.yml"
-          target: "/home/kubeuser"
+          target: "/home/kube"
 
       - name: Apply Kubernetes YAML
         uses: appleboy/ssh-action@v1
@@ -54,5 +54,5 @@ jobs:
           username: ${{ secrets.K8S_USER }}
           key: ${{ secrets.K8S_SSH_KEY }}
           script: |
-            cd /home/kubeuser
+            cd /home/kube
             kubectl apply -f *.yml
